@@ -157,77 +157,18 @@
                 }
             };
 
-            const loadTemplate = (type) => {
-                let template = {};
-                switch(type) {
-                    case 'browser':
-                        template = {
-                            Status: 'Run',
-                            TimeLineHandlers: [{
-                                HandlerType: 'BrowserChrome',
-                                HandlerArgs: {
-                                    isheadless: 'false',
-                                    blockimages: 'false',
-                                    blockstyles: 'false',
-                                    stickiness: 80,
-                                    'stickiness-depth-min': 3,
-                                    'stickiness-depth-max': 25
-                                },
-                                Initial: 'about:blank',
-                                UtcTimeOn: '00:00:00',
-                                UtcTimeOff: '24:00:00',
-                                Loop: true,
-                                TimeLineEvents: [{
-                                    Command: 'random',
-                                    CommandArgs: [
-                                        'http://www.google.com',
-                                        'http://www.wikipedia.org',
-                                        'http://www.github.com'
-                                    ],
-                                    DelayAfter: 300000,
-                                    DelayBefore: 0
-                                }]
-                            }]
-                        };
-                        break;
-                    case 'command':
-                        template = {
-                            Status: 'Run',
-                            TimeLineHandlers: [{
-                                HandlerType: 'Command',
-                                Initial: '',
-                                UtcTimeOn: '00:00:00',
-                                UtcTimeOff: '24:00:00',
-                                Loop: true,
-                                TimeLineEvents: [{
-                                    Command: 'dir',
-                                    CommandArgs: [],
-                                    DelayAfter: 10,
-                                    DelayBefore: 1000
-                                }]
-                            }]
-                        };
-                        break;
-                    case 'office':
-                        template = {
-                            Status: 'Run',
-                            TimeLineHandlers: [{
-                                HandlerType: 'Word',
-                                Initial: '',
-                                UtcTimeOn: '00:00:00',
-                                UtcTimeOff: '24:00:00',
-                                Loop: false,
-                                TimeLineEvents: [{
-                                    Command: 'random',
-                                    CommandArgs: [],
-                                    DelayAfter: 60000,
-                                    DelayBefore: 5000
-                                }]
-                            }]
-                        };
-                        break;
+            const loadTemplate = async (type) => {
+                try {
+                    const response = await fetch(`templates/${type}.json`);
+                    if (!response.ok) {
+                        throw new Error(`Failed to load template: ${type}`);
+                    }
+                    const template = await response.json();
+                    setTimeline(template);
+                } catch (error) {
+                    console.error('Error loading template:', error);
+                    alert(`Failed to load template: ${error.message}`);
                 }
-                setTimeline(template);
             };
 
             return (
@@ -322,12 +263,12 @@
                                     </h2>
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <button
-                                            onClick={() => loadTemplate('browser')}
+                                            onClick={() => loadTemplate('full-sample')}
                                             className="p-4 border-2 border-blue-200 dark:border-blue-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-all text-left"
                                         >
                                             <i className="fas fa-globe text-blue-500 dark:text-blue-400 text-2xl mb-2"></i>
-                                            <h3 className="font-semibold text-gray-800 dark:text-gray-100">Browser Activity</h3>
-                                            <p className="text-sm text-gray-600 dark:text-gray-400">Simulate web browsing with Chrome/Firefox</p>
+                                            <h3 className="font-semibold text-gray-800 dark:text-gray-100">Full Sample Template</h3>
+                                            <p className="text-sm text-gray-600 dark:text-gray-400">A complete timeline from CMUSEI</p>
                                         </button>
                                         <button
                                             onClick={() => loadTemplate('command')}
