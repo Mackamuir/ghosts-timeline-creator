@@ -294,7 +294,18 @@
                                     <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">Timeline Settings</h2>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Timeline ID</label>
+                                            <div className="flex items-center justify-between mb-1">
+                                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Timeline ID</label>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setTimeline({ ...timeline, Id: crypto.randomUUID() })}
+                                                    className="px-2 py-1 text-xs bg-indigo-600 hover:bg-indigo-700 text-white rounded flex items-center gap-1 transition-colors"
+                                                    title="Generate new GUID"
+                                                >
+                                                    <i className="fas fa-sync-alt"></i>
+                                                    Generate
+                                                </button>
+                                            </div>
                                             <input
                                                 type="text"
                                                 value={timeline.Id || ''}
