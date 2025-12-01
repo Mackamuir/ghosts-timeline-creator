@@ -696,34 +696,34 @@
 
             const getHandlerIcon = (type) => {
                 const icons = {
-                    'BrowserChrome': 'fa-chrome',
-                    'BrowserFirefox': 'fa-firefox',
-                    'Command': 'fa-terminal',
-                    'Word': 'fa-file-word',
-                    'Excel': 'fa-file-excel',
-                    'PowerPoint': 'fa-file-powerpoint',
-                    'Outlook': 'fa-envelope',
-                    'Outlookv2': 'fa-envelope',
-                    'Rdp': 'fa-desktop',
-                    'Notepad': 'fa-file-alt',
-                    'NpcSystem': 'fa-robot',
-                    'Reboot': 'fa-power-off',
-                    'Curl': 'fa-download',
-                    'Clicks': 'fa-mouse-pointer',
-                    'Watcher': 'fa-eye',
-                    'LightWord': 'fa-file-word',
-                    'LightExcel': 'fa-file-excel',
-                    'LightPowerPoint': 'fa-file-powerpoint',
-                    'PowerShell': 'fa-terminal',
-                    'Bash': 'fa-terminal',
-                    'Print': 'fa-print',
-                    'Ssh': 'fa-server',
-                    'Sftp': 'fa-folder-open',
-                    'Ftp': 'fa-folder',
-                    'Pidgin': 'fa-comments',
-                    'Wmi': 'fa-network-wired',
-                    'Aws': 'fa-aws',
-                    'Azure': 'fa-cloud'
+                    'BrowserChrome': 'fab fa-chrome',
+                    'BrowserFirefox': 'fab fa-firefox',
+                    'Command': 'fas fa-terminal',
+                    'Word': 'fas fa-file-word',
+                    'Excel': 'fas fa-file-excel',
+                    'PowerPoint': 'fas fa-file-powerpoint',
+                    'Outlook': 'fas fa-envelope',
+                    'Outlookv2': 'fas fa-envelope',
+                    'Rdp': 'fas fa-desktop',
+                    'Notepad': 'fas fa-file-alt',
+                    'NpcSystem': 'fas fa-robot',
+                    'Reboot': 'fas fa-power-off',
+                    'Curl': 'fas fa-download',
+                    'Clicks': 'fas fa-mouse-pointer',
+                    'Watcher': 'fas fa-eye',
+                    'LightWord': 'fasfa-file-word',
+                    'LightExcel': 'fas fa-file-excel',
+                    'LightPowerPoint': 'fas fa-file-powerpoint',
+                    'PowerShell': 'fas fa-terminal',
+                    'Bash': 'fas fa-terminal',
+                    'Print': 'fas fa-print',
+                    'Ssh': 'fas fa-server',
+                    'Sftp': 'fas fa-folder-open',
+                    'Ftp': 'fas fa-folder',
+                    'Pidgin': 'fas fa-comments',
+                    'Wmi': 'fas fa-network-wired',
+                    'Aws': 'fab fa-aws',
+                    'Azure': 'fas fa-cloud'
                 };
                 return icons[type] || 'fa-cog';
             };
@@ -739,7 +739,7 @@
                     >
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3 flex-1">
-                                <i className={`fas ${getHandlerIcon(handler.HandlerType)} text-2xl text-indigo-600 dark:text-indigo-400`}></i>
+                                <i className={`${getHandlerIcon(handler.HandlerType)} text-2xl text-indigo-600 dark:text-indigo-400`}></i>
                                 <div>
                                     <h3 className="font-bold text-gray-800 dark:text-gray-100">Handler #{handlerIndex + 1}: {handler.HandlerType}</h3>
                                     <p className="text-sm text-gray-600 dark:text-gray-400">
