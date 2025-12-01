@@ -1,6 +1,10 @@
 # GHOSTS Timeline Configuration Editor
 
-A visual editor for creating and managing GHOSTS timeline configuration files. This tool provides an intuitive interface for configuring realistic user simulation timelines.
+A visual editor for creating and managing [GHOSTS](https://cmu-sei.github.io/GHOSTS/core/client/) timeline configuration files. This tool provides an intuitive interface for configuring realistic user simulation timelines.
+
+>> Mostly AI lol, use at own risk.
+
+The current state of the documentation of ghosts and the timeline with all of it's unknown options was getting a bit wacky (No shade to the people over at CMU-SEI, they make great products and I love them) This should bring basically every feature into 1 place with descriptions.
 
 ## Features
 
@@ -12,30 +16,19 @@ A visual editor for creating and managing GHOSTS timeline configuration files. T
 - **JSON Import/Export**: Seamlessly import and export timeline configurations
 - **Quick Start Templates**: Pre-built templates for common scenarios
 
-## File Structure
-
-```
-timeline-manager/
-├── index.html           # Main HTML file (loads dependencies)
-├── js/
-│   ├── config.js       # Handler documentation and configuration
-│   └── components.js   # React components
-└── README.md           # This file
-```
-
 ## Usage
 
-### Opening the Editor
+Visit https://mackamuir.github.io/ghosts-timeline-creator/ to use the site.
 
-Simply open `index.html` in a modern web browser. No build step or server required!
+or if you wish to host locally:
 
 ```bash
-# On Windows
-start index.html
-
-# On Mac/Linux
-open index.html
+git clone https://github.com/Mackamuir/ghosts-timeline-creator.git
+cd .\ghosts-timeline-creator\
+python3 -m http.server
 ```
+
+then visit http://localhost:8000/
 
 ### Creating a Timeline
 
@@ -214,5 +207,3 @@ This tool is part of the GHOSTS project. See LICENSE.md for terms.
 - [GHOSTS GitHub Repository](https://github.com/cmu-sei/GHOSTS)
 - [GHOSTS Documentation](https://cmu-sei.github.io/GHOSTS/)
 - [Timeline Handler Documentation](https://github.com/cmu-sei/GHOSTS/tree/master/docs/handlers)
-# ghosts-timeline-creator
-# ghosts-timeline-creator
